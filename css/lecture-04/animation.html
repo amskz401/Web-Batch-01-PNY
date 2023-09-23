@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		.box0{
+			border-top: 20px solid red;
+			border-right: 20px solid green;
+			border-bottom:20px solid blue;
+			border-left: 20px solid black;
+			width: 200px;
+			height: 200px;
+			margin: auto;
+			text-align: center;
+		}
+		.box{
+			border-top: 20px solid red;
+			border-right: 20px solid green;
+			border-bottom:20px solid blue;
+			border-left: 20px solid black;
+			width: 200px;
+			height: 200px;
+			margin: auto;
+			text-align: center;
+			animation: rotatecicular 2s;
+			animation-iteration-count: infinite;
+			border-radius: 50%;
+		}
+
+		@keyframes rotatecicular {
+			0% {
+				border-top: 20px solid red;
+				transform: rotate(90deg);
+
+			}
+			25% {
+				border-right: 20px solid green;
+				transform: rotate(180deg);
+			}
+			75% {
+				border-bottom:20px solid #6969f4;
+				transform: rotate(270deg);
+			}
+			100% {
+				border-left: 20px solid #bd8585;
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="box0">
+		<div class="innerbox"></div>
+	</div>
+	<p>&nbsp;</p>
+	<div class="box"></div>
+
+	<div class="gallery">
+		<img src="">
+		<img src="">
+		<img src="">
+		<img src="">
+		<img src="">
+	</div>
+</body>
+</html>

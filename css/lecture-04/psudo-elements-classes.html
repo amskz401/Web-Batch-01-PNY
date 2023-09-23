@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Combinators</title>
+	<style type="text/css">
+		/* Psudo Elements */
+		.container > p {
+			font-size: 50px;
+			color: red;
+		}
+		/*	Psudo Class Example	*/
+		.container p:first-child{
+			font-size: 50px;
+			font-weight: bold;
+		}
+		.container p:last-child{
+			font-size: 50px;
+			font-weight: bold;
+		}
+		/* n represent positive number*/
+		.container p:nth-child(n){
+			font-size: 50px;
+			font-weight: bold;
+		}
+		/* multiple of n represent positive number*/
+		.container p:nth-child(2n){
+			font-size: 50px;
+			font-weight: bold;
+		}
+
+		/* multiple of n represent positive number plus 1st element */
+		.container p:nth-child(2n + 1){
+			font-size: 50px;
+			font-weight: bold;
+		}
+
+		/* apply rule on even element  */
+		.container p:nth-child(even){
+			font-size: 50px;
+			font-weight: bold;
+		}
+
+		/* apply rule on odd element  */
+		.container p:nth-child(odd){
+			font-size: 50px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<!-- <h1>This is my first heading</h1> -->
+		<p>this is my first paragraph</p>
+		<p>this is my first paragraph</p>
+		<p>this is my first paragraph</p>
+		<p>this is my first paragraph</p>
+		<p>this is my first paragraph</p>
+		<p>this is my first paragraph</p>
+	</div>
+</body>
+</html>
