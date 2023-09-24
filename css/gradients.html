@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gradients</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 70px;
+			border: 2px solid;
+		}
+		
+		.box.b2 {
+		    background: linear-gradient(to right, red, green);
+		}
+		.box.b3 {
+		    background: repeating-linear-gradient(red -6px, green 10px);
+		}
+		.box.b4 {
+		    background: conic-gradient(red 0deg, red 90deg, green 90deg, green 180deg);
+		    border-radius: 50%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box b1"></div>
+	<div class="box b2"></div>
+	<div class="box b3"></div>
+	<div class="box b4"></div>
+</body>
+</html>
