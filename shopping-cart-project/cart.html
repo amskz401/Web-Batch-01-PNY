@@ -5,7 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bootstrap demo</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 <body>
 	<header>
@@ -18,7 +20,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a>
+							<a class="nav-link" aria-current="page" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Cart</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="signup.html"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Singup</a>
@@ -32,33 +37,63 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container">
-		<div class="row mt-5">
-			<div class="col-md-12">
-				<h2 class="text-center">Login Here</h2>
-			</div>
-		</div>
-		<div class="row mt-5">
-			<div class="col-md-6 mx-auto">
-				<form>
-					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">Email address</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-						<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputPassword1" class="form-label">Password</label>
-						<input type="password" class="form-control" id="exampleInputPassword1">
-					</div>
-					<div class="mb-3 form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Check me out</label>
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-			</div>
-		</div>
+	<div class="text-center p-5 bg-secondary bg-gradient text-white border-top mb-5">
+		<h1 class="">Cart</h1>
 	</div>
+	<section class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<table class="table table-striped">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Title</th>
+							<th>Quantity</th>
+							<th>Sub total</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Prodcut One</td>
+							<td>2</td>
+							<td>12</td>
+							<td>24</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Prodcut Two</td>
+							<td>1</td>
+							<td>12</td>
+							<td>12</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Prodcut Three</td>
+							<td>1</td>
+							<td>12</td>
+							<td>12</td>
+						</tr>
+						<tr>
+							<td colspan="4"><strong>Total</strong></td>
+							<td>48</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 text-end">
+				<a href="checkout.html" class="btn btn-success">Checkout</a>
+			</div>
+		</div>
+	</section>
+	<div class="mb-5"></div>
+	
 	<footer class="bg-dark fixed-bottom-12">
 		<div class="copy-rights">
 			<p class="text-white pt-3 pb-3 text-center">copy right reserverd by PNY@2023</p>
