@@ -37,7 +37,7 @@ let sym = Symbol("first symbol");
 let null_val = null
 let bigInt_v = BigInt("12133");
 let bigInt_v2 = BigInt("78787887454545454");
-let bool_val = true;
+let bool_val = true; // true or false;
 
 // get types of defined variables 
 console.log(typeof num);
@@ -72,7 +72,7 @@ console.log(num1 > num2);
 console.log(num1 < num2);
 console.log(num1 >= num2);
 console.log(num1 <= num2);
-console.log(num1 === num2);
+console.log(num1 === num2); // checked condition as well as data type
 
 if(num1 === num2){
     console.log("equal");
@@ -86,7 +86,7 @@ else {
 (num1 === num2) ? console.log("equal") : console.log("not equal");
 
 // logical operators
-(num1 != num2 && num2 > 60); //false
+(num1 != num2 && num2 > 60 && num2 > 60); //false
 (num1 != num2 || num2 > 60); // true
 !(num1 != num2 || num2 > 60); // false
 
