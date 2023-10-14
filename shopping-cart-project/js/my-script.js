@@ -87,8 +87,8 @@ else {
 
 // logical operators
 (num1 != num2 && num2 > 60 && num2 > 60); //false
-(num1 != num2 || num2 > 60); // true
-!(num1 != num2 || num2 > 60); // false
+(num1 != num2 || num2 > 60 || con3 == 1); // true
+! ( !(num1 != num2) || num2 > 60); // false
 
 // Conditional statments
 if(num1 == num2){
