@@ -26,6 +26,12 @@
 						<li class="nav-item">
 							<a class="nav-link" href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Login</a>
 						</li>
+						<li class="nav-item">
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="switch_mode" value="off">
+								<label class="form-check-label text-white" for="flexSwitchCheckChecked" id="mode">Dark</label>
+							</div>
+						</li>
 					</ul>
 					
 				</div>
@@ -46,9 +52,12 @@
 						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 						<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 					</div>
-					<div class="mb-3">
+					<div class="input-group mb-3">
 						<label for="exampleInputPassword1" class="form-label">Password</label>
-						<input type="password" class="form-control" id="exampleInputPassword1">
+						<input type="password" class="form-control" id="password_field">
+						<div class="input-group-append" id="toggle_password"  onclick="toggle_password()">
+							<span class="input-group-text" id="basic-addon2"><i class="fa fa-eye"></i></span>
+						</div>
 					</div>
 					<div class="mb-3 form-check">
 						<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -66,5 +75,6 @@
 	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 </body>
 </html>
