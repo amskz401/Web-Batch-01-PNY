@@ -1,0 +1,31 @@
+Legacy Databases => File System
+
+SQL => Structured Query Language
+
+No SQL => Not Structured QL
+
+1. Create New Database
+
+2. Create New Table in database
+
+3. CRUD Operations
+	
+	i. 	Create a record or records
+
+		INSERT INTO `users` (`first_name`, `last_name`, `phone`, `email`, `password`) VALUES ('Other1', 'Record1', '+98 234 5455858', 'other@record.com', MD5('mynewpassword'));
+
+	ii. Retrieve a record or records
+
+		SELECT * FROM `users` WHERE id = 2;
+		SELECT * FROM `users`;
+		SELECT first_name, last_name FROM `users`;
+
+	iii. Update a record or records
+
+		UPDATE `users` SET `first_name` = 'Other12', `last_name` = 'Record12' WHERE `users`.`id` = 3;
+
+
+	iv. Delete a record or records
+
+		DELETE FROM users WHERE `users`.`id` = 4
+
