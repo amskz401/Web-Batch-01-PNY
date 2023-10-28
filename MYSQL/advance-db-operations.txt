@@ -1,0 +1,63 @@
+Advance DB Operations
+
+1. AND Case
+
+	SELECT * FROM `users` WHERE (id = 6 AND first_name = 'newname' AND last_name = 'newlast');
+
+2. OR Case
+
+	SELECT * FROM `users` WHERE (id = 6 OR first_name = 'newname' OR last_name = 'newlast');
+
+3. AND/OR Case
+	
+	SELECT * FROM `users` WHERE (id = 6 AND first_name = 'newname') OR last_name = 'newlast';
+
+4. Limit/Order
+	
+	i. SELECT * FROM `users` LIMIT 1; // get first record from top
+	ii. SELECT * FROM `users` ORDER BY id ASC LIMIT 1; // get first record
+	iii. SELECT * FROM `users` ORDER BY id DESC LIMIT 1; // get last record
+
+5. NULL/Empty
+
+	SELECT * FROM `users` WHERE first_name = '';
+	SELECT * FROM `users` WHERE last_name is null;
+
+6. LIMIT wiht OFFSET
+	
+	SELECT * FROM `users` ORDER BY id ASC LIMIT 30, 10; // limit offset, no of records
+
+7. Aggregate Functions
+	
+	SELECT MAX(id) FROM `users`; // fetch maximum id number
+	SELECT MIN(id) FROM `users`; // fetch minimum id number
+	SELECT SUM(id) FROM `users`; // return sum of all the ids
+	SELECT COUNT(id) FROM `users`; // return number of records
+	SELECT AVG(id) FROM `users`; // return average value sum / total of no records
+
+8. LIKE 
+	SELECT * FROM `users` WHERE first_name LIKE '%12%'; // get records where 12 exists in the whole string
+	SELECT * FROM `users` WHERE first_name LIKE "%12";  // get records where 12 exists in the end of the string
+	SELECT * FROM `users` WHERE first_name LIKE "oth%"; // get records where oth exists in the start of the string
+
+9. Greater/Less 
+	
+	SELECT * FROM `users` WHERE (id >= 8); 
+	SELECT * FROM `users` WHERE (id <= 10);
+	SELECT * FROM `users` WHERE id >= 10 AND id <= 20;
+
+10 Between
+	SELECT * FROM `users` WHERE id BETWEEN 10 AND 20;
+
+11 WHERE IN
+	SELECT * FROM `users` WHERE id = 3 OR id = 5 OR id = 7 OR id = 12; // default way getting multiple id's
+	SELECT * FROM `users` WHERE id IN (3, 5, 7, 12); // smart way getting multiple id's
+
+12 Alias
+	SELECT COUNT(id) as total_records FROM `users`; // total_records = 12;
+	SELECT first_name as First_Name, last_name as 'Last Name', phone as Moible_Number, email FROM `users`;
+	SELECT u.id FROM `users` as u, `products` as p;
+
+13. CASE WHEN THEN ELSE END
+	
+	SELECT status, CASE WHEN status = 1 THEN 'Active' WHEN status = 0 THEN 'Not Active' ELSE 'Not Defined' END as status FROM `users`;
