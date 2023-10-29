@@ -1,0 +1,42 @@
+JOINS:
+	Joins works on the base of tables order table1 => table2 => table3 ======> tablen
+
+	==> Select columns from table1 join table2 on base of primary and foriegn key
+
+
+1. Inner Join
+
+	SELECT u.first_name, u.last_name, u.phone, u.email, c.title, c.duration FROM `assigned_courses` as ac INNER JOIN users as u ON u.id = ac.student_id INNER JOIN courses as c ON c.id = ac.course_id;
+
+	// get all records that are exists on both tables with exact match
+
+2. Left Join
+	
+	SELECT * FROM `users` LEFT JOIN assigned_courses as ac ON ac.student_id = users.id;
+
+	// get all records from first table and matching records
+
+3. Right Join
+	
+	SELECT * FROM `users` RIGHT JOIN assigned_courses as ac ON ac.student_id = users.id;
+
+	// get all records from 2nd table and matching records
+
+4. Group By
+
+	SELECT users.first_name, users.last_name, users.email, student_id, COUNT(student_id) as courses_count FROM `assigned_courses` INNER JOIN users ON users.id = assigned_courses.student_id GROUP BY student_id;
+
+5. Sub Query with alias
+
+	SELECT student_id, COUNT(student_id) as courses_count, (SELECT first_name FROM `users` WHERE id = ac.student_id) as first_name FROM `assigned_courses` as ac GROUP BY student_id;
+
+6. Having Clause ==> works on aggregate functions with group by
+	
+	SELECT student_id, COUNT(course_id) as total_courses FROM `assigned_courses` GROUP BY student_id HAVING COUNT(course_id) > 2;
+
+7. EXIST Clause ==> to check whether record exist or not
+	
+	SELECT * FROM `assigned_courses` WHERE EXISTS (SELECT first_name FROM `users` WHERE id = 42);
+
+8. UNIQUE ==> set validation to unique that will never duplicated in same table
+
