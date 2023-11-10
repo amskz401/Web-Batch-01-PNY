@@ -1,3 +1,4 @@
+<?php $conn = new mysqli("localhost", "root", "", "online_store"); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,16 +18,16 @@
 		</div>
 		<div class="row mt-5">
 			<div class="col-md-6 mx-auto">
-				<form id="login_form">
+				<form id="login_form" method="post" action="">
 					
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Email address</label>
-						<input type="email" class="form-control" name="user_email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">
 					</div>
 					<p><label for="exampleInputPassword1" class="form-label">Password</label></p>
 					<div class="input-group mb-3">
 
-						<input type="password" name="user_password" class="form-control" id="password_field" required>
+						<input type="password" class="form-control" id="password_field" required name="password">
 						<div class="input-group-append" id="toggle_password">
 							<span class="input-group-text" id="eye-icon"><i class="fa fa-eye"></i></span>
 						</div>
@@ -49,6 +50,21 @@
 		</div>
 
 	</div>
+	<?php 
+	
+	
+	$email = $_POST['email']; 
+	$password = md5($_POST['password']); 
+
+	$checkUser = $conn->query("SELECT * FROM `users` WHERE email = '$email' AND password = '$password'");
+	if($checkUser->num_rows === 1){
+		$_SESSION['user'] = $checkUser;
+		echo 'user found';
+	} else {
+		echo 'user not found';
+	}
+
+	?>
 	<footer class="bg-dark fixed-bottom-12">
 		<div class="copy-rights">
 			<p class="text-white pt-3 pb-3 text-center">copy right reserverd by PNY@2023</p>
