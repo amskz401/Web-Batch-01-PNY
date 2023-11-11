@@ -31,7 +31,7 @@ if(isset($_COOKIE['user_cookie']) && $_COOKIE['user_cookie'] == 'active'){
 					</li>
 					<?php } elseif(isset($_SESSION['user']) && $_SESSION['user'] == 'active') { ?>
 						<li class="nav-item">
-						<a class="nav-link" href="controller/process_login.php?logout=true"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Logout</a>
+						<a class="nav-link" href="controller/process_user.php?process_logout=true"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Logout</a>
 					</li>
 					<?php } ?>
 				</ul>

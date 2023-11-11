@@ -25,7 +25,7 @@ if(count($_SESSION['error']) == 0){
 	if($logged_in->num_rows == 1){
 		$_SESSION['user'] = "active";
 		if(isset($_POST['remember_me']) && $_POST['remember_me'] == 1){
-			setcookie('user_cookie', 'active', time() + 36000, "/");
+			setcookie('user_cookie', 'active', time() + 3600, "/");
 		}
 
 		header("Location: http://localhost/scs_b01/dashboard.php");

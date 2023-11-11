@@ -26,28 +26,8 @@ if($_POST['email'] == '') {
 	$_SESSION['error']['email'] = "Email is required";
 }
 
-
-// Validate password
-if($_POST['password'] == '') {
-	$_SESSION['error']['password'] = "Password is required";
-}
-
-// Validate password
-if($_POST['password'] != $_POST['con_password']) {
-	$_SESSION['error']['con_password'] = "Password confirmation is wrong";
-}
-
-// Check Email
-$email = $_POST['email'];
-$checkMail = $conn->query("SELECT * FROM users WHERE email  = '$email'");
-
-
-if($checkMail->num_rows > 0){
-	$_SESSION['error']['exist_email'] = "Email Already exist use another one";
-}
-
 if(count($_SESSION['error']) > 0){
-	header("Location: http://localhost/scs_b01/signup.php");
+	header("Location: http://localhost/scs_b01/edit.php?user_id=".$_POST['user_id']);
 }
 
 if(count($_SESSION['error']) == 0){
@@ -56,9 +36,11 @@ if(count($_SESSION['error']) == 0){
 	$email = $_POST['email'];
 	$phone = $_POST['phone'];
 	$gender = $_POST['gender'];
-	$password = md5($_POST['password']);
-	$conn->query("INSERT INTO `users`(`first_name`, `last_name`, `phone`, `email`, `gender`, `password`) VALUES ('$first_name', '$last_name', '$phone', '$email', '$gender', '$password')");
-	header("Location: http://localhost/scs_b01/signup.php?success=true");
+	$user_id = $_POST['user_id'];
+
+	$conn->query("UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`phone`='$phone',`email`='$email',`gender`='$gender' WHERE `id` = $user_id");
+	$_SESSION['succMSG'] = "Your record udpated successfully";
+	header("Location: http://localhost/scs_b01/dashboard.php");
 }
 
  ?>

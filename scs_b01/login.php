@@ -29,8 +29,8 @@
 		<?php unset($_SESSION['error']['invalid_user']); } ?>
 		<div class="row mt-5">
 			<div class="col-md-6 mx-auto">
-				<form id="login_form" method="post" action="controller/process_login.php">
-					
+				<form id="login_form" method="post" action="controller/process_user.php">
+					<input type="hidden" name="process_login" value="true">
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Email address</label>
 						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">

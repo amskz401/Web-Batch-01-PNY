@@ -1,3 +1,6 @@
+<?php require_once("db-config/db-connection.php");
+$student = $conn->query("SELECT * FROM `users` WHERE id = ".$_GET['user_id'])->fetch_assoc();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -12,13 +15,11 @@
 <body>
 	<?php $activeClass = "singup_page"; ?>
 	<?php require_once("layouts/header.php"); ?>
-	<?php if(isset($_SESSION['user']) && $_SESSION['user'] == 'active') {
-		header("Location: dashboard.php");
-	} ?>
+	
 	<div class="container">
 		<div class="row mt-5">
 			<div class="col-md-12">
-				<h2 class="text-center">Register Here</h2>
+				<h2 class="text-center">Update Information</h2>
 			</div>
 		</div>
 		<?php if(isset($_GET['success'])) { ?>
@@ -43,10 +44,11 @@
 		<div class="row mt-5">
 			<div class="col-md-6 mx-auto">
 				<form action="controller/process_user.php" method="post">
-					<input type="hidden" name="process_signup" value="true">
+					<input type="hidden" name="user_id" value="<?php echo $student['id'] ?>">
+					<input type="hidden" name="process_update" value="true">
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">First Name</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="first_name">
+						<input type="text" class="form-control" name="first_name" value="<?php echo $student['first_name'] ?>">
 						<?php if(isset($_SESSION['error']['first_name'])) { ?>
 						<small><font color="red"><?php echo $_SESSION['error']['first_name']; ?></font></small>
 						<?php unset($_SESSION['error']['first_name']); } ?>
@@ -54,7 +56,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Last Name</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="last_name">
+						<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="last_name"  value="<?php echo $student['last_name'] ?>">
 						<?php if(isset($_SESSION['error']['last_name'])) { ?>
 						<small><font color="red"><?php echo $_SESSION['error']['last_name']; ?></font></small>
 						<?php unset($_SESSION['error']['last_name']); } ?>
@@ -62,7 +64,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Email address</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"  value="<?php echo $student['email'] ?>">
 						<?php if(isset($_SESSION['error']['email'])) { ?>
 						<small><font color="red"><?php echo $_SESSION['error']['email']; ?></font></small>
 						<?php unset($_SESSION['error']['email']); } ?>
@@ -70,7 +72,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="exampleInputEmail1" class="form-label">Phone Number</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone">
+						<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone"  value="<?php echo $student['phone'] ?>">
 						<?php if(isset($_SESSION['error']['phone'])) { ?>
 						<small><font color="red"><?php echo $_SESSION['error']['phone']; ?></font></small>
 						<?php unset($_SESSION['error']['phone']); } ?>
@@ -85,23 +87,8 @@
 						</select>
 						
 					</div>
-					
-					<div class="mb-3">
-						<label for="exampleInputPassword1" class="form-label">Password</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" name="password">
-						<?php if(isset($_SESSION['error']['password'])) { ?>
-						<small><font color="red"><?php echo $_SESSION['error']['password']; ?></font></small>
-						<?php unset($_SESSION['error']['password']); } ?>
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" name="con_password">
-						<?php if(isset($_SESSION['error']['con_password'])) { ?>
-						<small><font color="red"><?php echo $_SESSION['error']['con_password']; ?></font></small>
-						<?php unset($_SESSION['error']['con_password']); } ?>
-					</div>
 
-					<button type="submit" class="btn btn-primary mb-5">Register</button>
+					<button type="submit" class="btn btn-primary mb-5">Update</button>
 				</form>
 			</div>
 		</div>
