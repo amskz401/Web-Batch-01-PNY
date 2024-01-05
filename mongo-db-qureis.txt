@@ -1,0 +1,102 @@
+1. show dbs 
+	// show all databases
+
+2. use shoe_store
+	// switch to that database, if not exist then create
+
+3. show collections
+	// display no of tables
+
+4. Insert Single Record
+	db.users.insertOne( {name: "new user 2",email: "new@user2.com",is_active: true} )
+
+5. Insert Multiple Records
+	db.users.insertMany([
+		{name: "new user 2",email: "new@user2.com",is_active: true},
+		{name: "new user 3",email: "new@user3.com",is_active: true},
+		{name: "new user 4",email: "new@user4.com",is_active: true},
+		{name: "new user 5",email: "new@user5.com",is_active: true}
+	])
+
+6. Insert Records Advance
+	db.users.insertOne( { 
+		name: "new", 
+		email: "new@m.com",
+		hobbies: ["cricket", "reading", "outing"]
+	})
+
+7. Delete Single Record
+	db.users.deleteOne( {name: "new user 5"} )
+
+8. Delete Multiple Records
+	db.users.deleteMany( {name: "new user"} )
+
+9. Update Single Record
+	db.users.updateOne(
+		{name: "new"},
+		{
+			$set: {
+				hobbies: [1,2,3,4,5]
+			}
+		}
+	)
+
+10. Update Multiple Records
+	db.users.updateMany(
+		{name: "new user"},
+		{
+			$set: {
+				is_active12: false
+			}
+		}
+	)
+
+11. Delete/Unset Column
+	db.users.updateMany(
+		{name: "new user"},
+		{
+			$unset: {
+				is_active12: false
+			}
+		}
+	)
+
+12. Replace Whole Document
+	db.users.replaceOne(
+		{name: "new user"},
+		{ acc: 123, bank: "Meezan", status: false }
+	)
+
+13. Get All Records
+	db.users.find({})
+
+14. Get All Records with columns
+	db.users.find(
+		{},
+		{_id: false, name: true, email:true}
+	)
+
+15. Condition base single record 
+	db.users.findOne( { name: "new user" } )
+
+16. Condition base all records
+	db.users.find( { name: "new user" } )
+
+17. Condition on multiple columns // and case
+	db.users.find( { name: "new user", email: "new@user2.com" } )
+	db.users.find( { $and: [ {name: "new user"}, {email: "new@user2.com"} ] } )
+
+18. Condition on multiple columns // or case
+	db.users.find( { $or: [ {name: "new user"}, {email: "new@user2.com"} ] } )
+
+19. Condition on multiple columns // and/or case
+	db.users.find({
+		name: "new user",
+		$or: [ {is_active: false}, {email: "new@user2.com"} ]
+	})
+
+20. Condition on multiple columns // and/or case
+	db.users.find({
+		name: "new user",
+		$or: [ {is_active: true}, {email: "new@user2.com"} ]
+	})
