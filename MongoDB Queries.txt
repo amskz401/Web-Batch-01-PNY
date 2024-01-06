@@ -1,0 +1,46 @@
+MongoDB for VS Code
+
+1. Sorting in asc order
+    db.inventory.find().sort({qty: 1})
+
+2. Sorting in desc order
+    db.inventory.find().sort({qty: -1})
+
+3. Limit records 
+    db.inventory.find().limit(2)
+
+4. Limit records with sort
+    db.inventory.find().limit(2).sort({qty: -1})
+
+5. Limit with offset(skip)
+    db.inventory.find().limit(5).skip(6)
+
+6. Limt with offset(skip) and sort
+    db.inventory.find().limit(5).skip(6).sort({qty: 1})
+
+7. Find record using inner array values
+    db.inventory.find({"size.h": 28})
+    db.inventory.find({"size.uom": "cm"})
+
+8. Logical operators
+    db.inventory.find( { "size.h": { $lt: 10 } } )
+    db.inventory.find( { qty: { $lte: 15  } } )
+    db.inventory.find( { "size.h": { $gt: 15 } } )
+    db.inventory.find( { qty: { $gte: 100  } } )
+    db.inventory.find( { "size.h": { $gt: 15 }, "size.w": {$lt: 50} } )
+    db.inventory.find( { item: { $ne: "postcard" } } )
+    db.inventory.find( { status: { $in: ["A", "D"] } } )
+    db.inventory.find( { qty: { $not: { $gt: 15 } } } )
+
+9. Creating Indexes
+    db.inventory.createIndex({item:1})
+    db.inventory.getIndexes();
+    db.inventory.dropIndex("item_1") // (index name)
+    db.inventory.dropIndex({item:1}) // (index key)
+
+10. Aggregate functions
+    db.inventory.aggregate([{$match:{qty:25}}]) // get all records where qty = 25;
+    db.inventory.aggregate([{$match:{qty: 100}},{$count:"Total Records"}]) // Return total no of records
+    db.inventory.aggregate([{$match:{qty: 25}},{$group: {_id: "$qty", total: {$sum: "$qty"}}}]) // return sum where quantity = 25
+    db.inventory.aggregate([{$match:{qty: { $in: [25, 100]} }},{$group: {_id: "$qty", total: {$sum: "$qty"}}}]) // return sum where quantity = 25 and 100
+    db.inventory.aggregate([{$match:{qty: {$in: [25, 100]} }},{$group: {_id: "$qty", count: {$sum:1}}}]) // return sum where quantity = 25 and 100 and counter
