@@ -1,0 +1,37 @@
+<%- include('layouts/header') %>
+<body>
+    <%- include('layouts/menu') %>
+    
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-success" id="loginAlert">
+                Product Updated Successfully
+            </div>
+            <% products.forEach(element => { %>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="/images/Toyota_Aqua_101_(cropped).JPG" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= element.title %></h5>
+                      <p class="card-text"><%= element.description %></p>
+                      <p>
+                        <strong>Price: </strong> <%= element.price %>
+                      </p>
+                      <a href="/edit/<%= element._id %>" class="btn btn-primary">Edit</a>
+                      <a onclick="return confirm('are you sure ?')" href="/delete/<%= element._id %>" class="btn btn-danger">Delete</a>
+                    </div>
+                  </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+<script>
+    $('#loginAlert').hide();
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('msg');
+    if(myParam == "true") {
+        $('#loginAlert').show();
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<%- include('layouts/header') %>
+<body>
+    <%- include('layouts/menu') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <h1 class="text-center">Edit Student Record</h1>
+                <form action="/users/edit-student" method="post">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                        <input type="text" value="<%= student.name %>" name="first_name" class="form-control" id="exampleFormControlInput1">
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                        <input type="text" value="<%= student.lname %>" name="last_name" class="form-control" id="exampleFormControlInput1">
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" value="<%= student.email %>" name="email" class="form-control" id="exampleFormControlInput1" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Phone</label>
+                        <input type="text" name="phone" value="<%= student.phone %>" class="form-control" id="exampleFormControlInput1" >
+                      </div>
+                      <input type="submit" value="Update Student" class="btn btn-primary mt-3">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
