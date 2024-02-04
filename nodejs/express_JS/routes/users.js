@@ -1,5 +1,6 @@
 
 const User = require('../server/userSchema');
+const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 
@@ -19,9 +20,28 @@ let coutnerApi = (req, res, next) => {
     
 }
 
-router.get('/', coutnerApi, async (req, res) => {
-    let users = await User.find();
-    res.send(users);
+router.post('/', coutnerApi, (req, res) => {
+    
+    jwt.verify(req.body.token, 'apiSecret', function(err, decoded) {
+        if(decoded) {
+            User.find().then( users => {
+                res.send(users);
+            } );
+            
+        } else {
+            let error = {
+                bit: 0,
+                message: "Token not matached"
+            }
+            res.send(error)
+        }
+    });
+    
+});
+router.get('/', coutnerApi, (req, res) => {
+    User.find().then( users => {
+        res.send(users);
+    } );
 });
 
 router.get("/find-user/:_id", (req, res) => {

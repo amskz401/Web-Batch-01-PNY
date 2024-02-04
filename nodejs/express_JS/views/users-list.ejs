@@ -1,0 +1,39 @@
+<%- include('layouts/header') %>
+<body>
+    <%- include('layouts/menu') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <h1 class="text-center">Users List</h1>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(element => { %>
+                         
+                        
+                      <tr>
+                        <th scope="row"><%= element.id %></th>
+                        <td><%= element.name %></td>
+                        <td><%= element.email %></td>
+                        <td>
+                            <a href="/user-details/<%= element.id %>" class="btn btn-primary">
+                                Show User
+                            </a>
+                        </td>
+                      </tr>
+                      <% }) %>
+                    
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
