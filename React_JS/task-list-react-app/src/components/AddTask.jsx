@@ -9,7 +9,7 @@ export default function ({ fromChild }) {
         <center>
           <div className="col-md-6">
             <form>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
                   className="form-control"
